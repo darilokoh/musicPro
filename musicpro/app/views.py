@@ -23,9 +23,9 @@ import io
 import logging
 from django.http import QueryDict
 from django.utils.datastructures import MultiValueDict
-
+from forex_python.converter import CurrencyRates
 # Create your views here.
-
+from.processor import cart_total
 
 class CategoryViewset(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -45,6 +45,7 @@ class ProductViewset(viewsets.ModelViewSet):
         new = self.request.GET.get('new')
         min_price = self.request.GET.get('min_price_filter')
         max_price = self.request.GET.get('max_price_filter')
+        brand = self.request.GET.get('brand')
 
         if name:
             products = products.filter(name__contains=name)
@@ -62,6 +63,8 @@ class ProductViewset(viewsets.ModelViewSet):
             products = products.filter(featured=True)
         if new:
             products = products.filter(new=True)
+        if brand:
+            products = products.filter(brand__contains=brand)
 
         return products
     
@@ -162,6 +165,7 @@ def add_product(request):
             stock = form.cleaned_data['stock']
             featured = form.cleaned_data['featured']
             image = form.cleaned_data['image']
+            brand = form.cleaned_data['brand']
 
             # Crear un diccionario con los datos del producto
             product_data = {
@@ -172,6 +176,7 @@ def add_product(request):
                 'category': category_id,  # Usar el ID de la categoría
                 'stock': stock,
                 'featured': featured,
+                'brand': brand,
             }
 
             # Realizar una solicitud POST a la API para crear el producto
@@ -243,6 +248,7 @@ def update_product(request, id):
                 stock = form.cleaned_data['stock']
                 featured = form.cleaned_data['featured']
                 image = form.cleaned_data['image']
+                brand = form.cleaned_data['brand']
 
                 product_data = {
                     'name': name,
@@ -252,6 +258,7 @@ def update_product(request, id):
                     'category': category_id,
                     'stock': stock,
                     'featured': featured,
+                    'brand': brand,
                 }
 
                 response = requests.put(
@@ -425,11 +432,13 @@ def add_category(request):
             name = form.cleaned_data['name']
             description = form.cleaned_data['description']
             image = form.cleaned_data['image']
+            sub_category = form.cleaned_data['sub_category']
 
             # Crear un diccionario con los datos del producto
             category_data = {
                 'name': name,
                 'description': description,
+                'sub_category': sub_category,
             }
 
             # Realizar una solicitud POST a la API para crear el producto
@@ -498,10 +507,12 @@ def update_category(request, id):
             else:
                 description = form.cleaned_data['description']
                 image = form.cleaned_data['image']
+                sub_category = form.cleaned_data['sub_category']
 
                 category_data = {
                     'name': name,
                     'description': description,
+                    'sub_category': sub_category,
                 }
 
                 response = requests.put(
@@ -640,3 +651,7 @@ def delete_rental(request, id):
     rental.delete()
     messages.success(request, "Eliminado correctamente")
     return redirect(to="list_rental")
+def pago(request):
+    return render(request, "app/pago.html")
+
+

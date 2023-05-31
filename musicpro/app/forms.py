@@ -87,7 +87,8 @@ class ProductForm(forms.ModelForm):
             'new': '¿Nuevo?',
             'featured': '¿Destacado?',
             'rental_product': '¿Arrendable?',
-            'image': 'Imagen'
+            'image': 'Imagen',
+            'brand': 'Marca'
         }
 
 
@@ -109,7 +110,8 @@ class CategoryForm(forms.ModelForm):
         labels = {
             'name': 'Nombre',
             'description': 'Descripcion',
-            'image': 'Imagen'
+            'image': 'Imagen',
+            'sub_category': 'Tipo de instrumento'
         }
 
 
