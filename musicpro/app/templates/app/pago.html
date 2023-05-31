@@ -7,11 +7,11 @@
 {% endblock %}
 
 {% block content %}
-
+<div class="alert alert-secondary my-5" role="alert"></div>
 <table class="table table-bordered table-hover table-responsive-sm">
     <thead>
         <tr>
-            <h2 style="text-align: center; justify-content: center;" class="my-2">Carrito</h1>
+            <h2 style="text-align: center; justify-content: center;" class="my-2">Informacion de Pago</h1>
                 <br>
         </tr>
         <tr>
@@ -51,13 +51,9 @@
 
 <hr>
 
-<div class="row text-center">
 </div>
 
-</div>
-
-<br><br><br><br><br><br><br><br>
-
+<br><br><br><br><br><br>
     <div class="container">
         <div class="row">
             <div class="col">
@@ -140,7 +136,7 @@
 // Función para convertir el total de CLP a dólares
 function convertToUSD(totalCLP) {
     // Tasa de conversión: 1 CLP = 0.0014 USD (valor de ejemplo)
-    var conversionRate = 0.0014;
+    var conversionRate = 0.00124;
     var totalUSD = totalCLP * conversionRate;
     return totalUSD.toFixed(2);
 }
