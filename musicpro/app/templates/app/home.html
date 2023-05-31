@@ -2,7 +2,7 @@
 
 {% load static %}
 {% block css %}
-<title>Conejo Furioso</title>
+<title>MUSICPRO</title>
 {% endblock %}
 
 {% block js %}
@@ -14,7 +14,7 @@
 <!-- container para el carrousel -->
 <div class="container-fluid mt-3">
   <div class="carrousel">
-    <div id="carouselExampleCaptions" class="carousel slide">
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
           aria-current="true" aria-label="Slide 1"></button>
@@ -70,6 +70,9 @@
             <div class="text-center">
               <h5 class="card-title custom-card-title">{{ p.name | capfirst }}</h5>
             </div>
+            <div>
+              <h4>Marca: {{ p.brand }}</h4>
+            </div>
             <p class="card-text custom-card-description"></p>
             <div class="mt-auto text-center">
               <p class="card-text price"><b> ${{ p.price | intcomma }}</b></p>
@@ -101,23 +104,16 @@
         </div>
       </div>
       <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 ">
-        <h1>Cervecería artesanal Conejo Furioso</h1>
+        <h1>INSTRUMENTOS Y ACCESORIOS MUSICALES MUSICPRO</h1>
         <div class="about-us">
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptate eveniet repellat similique
-            dolore veritatis corporis non nesciunt quisquam alias asperiores odit minima ipsa pariatur corrupti,
-            quaerat itaque sapiente suscipit!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptate eveniet repellat similique dolore
-            veritatis corporis non nesciunt quisquam alias asperiores odit minima ipsa pariatur corrupti, quaerat
-            itaque sapiente suscipit!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptate eveniet repellat similique dolore
-            veritatis corporis non nesciunt quisquam alias asperiores odit minima ipsa pariatur corrupti, quaerat
-            itaque sapiente suscipit!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptate eveniet repellat similique dolore
-            veritatis corporis non nesciunt quisquam alias asperiores odit minima ipsa pariatur corrupti, quaerat
-            itaque sapiente suscipit!
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio voluptate eveniet repellat similique dolore
-            veritatis corporis non nesciunt quisquam alias asperiores odit minima ipsa pariatur corrupti, quaerat
-            itaque sapiente suscipit!
+          <p>MusicPro es una tienda distribuidaora, ubicada en Santiago de Chile desde el año 1988, con sedes repartidas por 
+            la región metropolitana, las cuales se encuentran en Maipú desde 2001, Santiago desde el 2003, y Vitacura desde el 2010. 
+            Abarcando así una gran área de la región metropolitana. Los distintos instrumentos y accesorios que se pueden encontrar en “MUSIC PRO” son diversos, van desde
+            guitarras acústicas, guitarras eléctricas de 6 a 8 cuerdas, bajos activos y pasivos de 4 a 6 cuerdas, sets de batería,
+            amplificadores, cabezales, accesorios y además artículos como audífonos, parlantes, interfaces, adaptadores,
+            pedales, cuerdas, etc., lo cual es posible gracias a que “MUSIC PRO” tiene trato con marcas reconocidas del área
+            como Ibáñez, ESP, Gibson, Jackson Marshall, y muchas más que hacen que sea una tienda diversa y muy solicitada
+            por la variedad y calidad de sus productos.
           </p>
         </div>
       </div>
@@ -132,27 +128,7 @@
   </section>
 
 </div>
-<!-- sección categorías -->
-<div class="container">
-  <section class="pb-5 mt-5">
-    <h1 class="text-center pb-4 mb-5">EXPLORA NUESTRAS DISTINTAS CATEGORÍAS</h1>
-    <div class="categorycard" style="display: flex; justify-content: space-between;">
-      <div style="width: 30%; padding: 20px; border-radius: 5px;">
-        <h2 style="font-family: impact, sans-serif; font-weight: bold;">Lager</h2>
-        <p>Chela depana, la misma de siempre</p>
-      </div>
-      <div style="width: 30%; padding: 20px; border-radius: 5px;">
-        <h2 style="font-family: impact, sans-serif; font-weight: bold;">American Lager</h2>
-        <p>Very good beer</p>
-      </div>
-      <div style="width: 30%; padding: 20px; border-radius: 5px;">
-        <h2 style="font-family: impact, sans-serif; font-weight: bold;">Stout</h2>
-        <p>Esta cerveza te volará la cabeza</p>
-      </div>
-    </div>
-</div>
-</section>
-</div>
+
 <!-- sección productos nuevos -->
 <div class="container">
   <section class="pb-5">
@@ -170,6 +146,9 @@
           <div class="card-body d-flex flex-column align-items-center">
             <div class="text-center">
               <h5 class="card-title custom-card-title">{{ p.name | capfirst }}</h5>
+            </div>
+            <div>
+              <h4>Marca: {{ p.brand }}</h4>
             </div>
             <p class="card-text custom-card-description"></p>
             <div class="mt-auto text-center">
