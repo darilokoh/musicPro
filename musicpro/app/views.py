@@ -651,3 +651,5 @@ def delete_rental(request, id):
     rental.delete()
     messages.success(request, "Eliminado correctamente")
     return redirect(to="list_rental")
+def pago(request):
+    return render(request, "app/pago.html")
