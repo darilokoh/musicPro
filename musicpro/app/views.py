@@ -13,9 +13,9 @@ from django.core.cache import cache
 from app.cart import Cart
 from rest_framework.response import Response
 from django.conf import settings
-
-
+from forex_python.converter import CurrencyRates
 # Create your views here.
+from.processor import cart_total
 
 class CategoryViewset(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -638,3 +638,7 @@ def delete_rental(request, id):
     rental.delete()
     messages.success(request, "Eliminado correctamente")
     return redirect(to="list_rental")
+def pago(request):
+    return render(request, "app/pago.html")
+
+
