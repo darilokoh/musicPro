@@ -2,19 +2,19 @@
 
 :root {
   /* color navbar y footer */
-  --color-primary: #96d6ef;
+  --color-primary: #000000;
 
   /* fondo body*/
   --color-primary-2: rgb(246, 241, 241);
 
   /* color para buttons */
-  --color-primary-3: #19a7ce;
+  --color-primary-3: #ce1919;
 
   /* color hover y navbar toggler */
   --color-secondary: #ffffff;
 
   /* fondo cards */
-  --color-tres: #b7dae7ad;
+  --color-tres: #616161ad;
 }
 
 .bg-primary {
@@ -80,12 +80,17 @@ h5.noStock {
 }
 
 .nav-link:hover {
-  color: var(--color-secondary);
+  color: red !important;
 }
 
 .navbar-toggler {
   background-color: var(--color-secondary);
 }
+
+.nav-link {
+  color: white !important;
+}
+
 
 /* CARRUSEL */
 
