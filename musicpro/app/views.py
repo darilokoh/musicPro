@@ -23,9 +23,9 @@ import io
 import logging
 from django.http import QueryDict
 from django.utils.datastructures import MultiValueDict
-
+from forex_python.converter import CurrencyRates
 # Create your views here.
-
+from.processor import cart_total
 
 class CategoryViewset(viewsets.ModelViewSet):
     queryset = Category.objects.all()
@@ -653,3 +653,5 @@ def delete_rental(request, id):
     return redirect(to="list_rental")
 def pago(request):
     return render(request, "app/pago.html")
+
+
