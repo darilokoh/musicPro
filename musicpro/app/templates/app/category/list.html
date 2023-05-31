@@ -42,6 +42,7 @@
                     <thead>
                         <tr>
                             <th>Nombre</th>
+                            <th>Tipo de instrumento</th>
                             <th>Descripcion</th>
                             <th>Imagen</th>
                             {% if perms.app.change_category %}
@@ -60,6 +61,7 @@
 
                     <tr>
                         <td>{{c.name | title }}</td>
+                        <td>{{c.sub_category }}</td>
                         <td>{{c.description }}</td>
                         <td>
                             {% if c.image %}
